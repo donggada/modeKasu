@@ -19,11 +19,19 @@ public class LendItem extends BaseTimeEntity {
     private Long id;
 
     private String brand;
+
     private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
     private Category category;
+
     private String season;
+
     private int price;
+
     private String image;
+
     private int discount;
 
     @ElementCollection
@@ -35,6 +43,10 @@ public class LendItem extends BaseTimeEntity {
     @CollectionTable(name = "lenditem_color", joinColumns = @JoinColumn(name = "lenditem_id"))
     @Column(name = "color")
     private List<String> color;
+
+    public String getCategoryName() {
+        return category.getName();
+    }
 
     private LendItem( String brand, String name, Category category, String season, int price, String image, int discount, List<String> size, List<String> color) {
         this.brand = brand;

@@ -24,7 +24,7 @@ public record LendItemResponse(
                 .index(lendItem.getId())
                 .brand(lendItem.getBrand())
                 .name(lendItem.getName())
-                .category(lendItem.getCategory())
+                .category(lendItem.getCategoryName())
                 .season(lendItem.getSeason())
                 .price(lendItem.getPrice())
                 .image(lendItem.getImage())

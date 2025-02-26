@@ -20,7 +20,7 @@ public class LendItemFacade {
         return LendItemResponse.of(
                 lendItemService.saveLendItem(
                         request,
-                        categoryService.findCategory()
+                        categoryService.findCategory(request.categoryId())
                 )
         );
     }
