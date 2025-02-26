@@ -30,7 +30,7 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation ("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
-	runtimeOnly("com.h2database:h2")
+//	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

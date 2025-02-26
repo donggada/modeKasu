@@ -28,18 +28,22 @@ jobs:
               env:
                 - name: SPRING_PROFILES_ACTIVE
                   var: SPRING_PROFILES_ACTIVE
-                - name: PROD_DB_PASSWORD
-                  secret: PROD_DB_PASSWORD
+                - name: PROD_DB_URL
+                  var: PROD_DB_URL
+                - name: PROD_DB_PORT
+                  var: PROD_DB_PORT
+                - name: PROD_DB_DATA_BASE
+                  var: PROD_DB_DATA_BASE
                 - name: PROD_DB_USER_NAME
                   secret: PROD_DB_USER_NAME
+                - name: PROD_DB_PASSWORD
+                  secret: PROD_DB_PASSWORD
+                - name: TOSS_CLIENT_KEY
+                  var: TOSS_CLIENT_KEY
                 - name: TOSS_SECRET_KEY
                   secret: TOSS_SECRET_KEY
                 - name: TOSS_SECURITY_KEY
                   secret: TOSS_SECURITY_KEY
-                - name: PROD_DB_URL
-                  var: PROD_DB_URL
-                - name: TOSS_CLIENT_KEY
-                  var: TOSS_CLIENT_KEY
               buildenv: []
             context:
               git:
