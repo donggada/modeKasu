@@ -1,0 +1,48 @@
+name: Deploy to cloudtype
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: dongs-app/web-app-server
+          stage: main
+          yaml: |
+            name: modekasu
+            app: java@21
+            options:
+              ports: 8080
+              env:
+                - name: SPRING_PROFILES_ACTIVE
+                  var: SPRING_PROFILES_ACTIVE
+                - name: PROD_DB_PASSWORD
+                  secret: PROD_DB_PASSWORD
+                - name: PROD_DB_USER_NAME
+                  secret: PROD_DB_USER_NAME
+                - name: TOSS_SECRET_KEY
+                  secret: TOSS_SECRET_KEY
+                - name: TOSS_SECURITY_KEY
+                  secret: TOSS_SECURITY_KEY
+                - name: PROD_DB_URL
+                  var: PROD_DB_URL
+                - name: TOSS_CLIENT_KEY
+                  var: TOSS_CLIENT_KEY
+              buildenv: []
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
+              preset: java-springboot
