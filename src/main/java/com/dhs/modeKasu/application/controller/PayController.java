@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/pay")
+@RequestMapping("api/v1/pay1")
 public class PayController {
     @Value("${toss.client.key}")
     private String key;
