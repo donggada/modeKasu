@@ -9,7 +9,8 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     INVALID_LOGIN_ID(HttpStatus.CONFLICT, "로그인 실패 입니다.", "login_id: %d"),
     INVALID_MEMBER(HttpStatus.CONFLICT, "존재하지 않는 유저입니다.", "member_id: %d"),
-    INVALID_CATEGORY(HttpStatus.CONFLICT, "존재하지 않는 카테고리입니다.", "category_id: %d");
+    INVALID_CATEGORY(HttpStatus.CONFLICT, "존재하지 않는 카테고리입니다.", "category_id: %d"),
+    INVALID_PAYMENT_SERVICE(HttpStatus.CONFLICT, "존재하지 결제서비스 타입 입니다.", "payment_provider: %d");
 
 
     private final HttpStatus httpStatus;
