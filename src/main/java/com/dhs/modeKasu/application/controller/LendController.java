@@ -13,6 +13,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +33,7 @@ public class LendController {
     private final LendItemRepository lendItemRepository;
     private final CategoryRepository categoryRepository;
 
+
     @PostMapping
     public LendItemResponse createLendItem(@RequestBody @Valid LendItemRequest request) {
         return lendItemFacade.createLendItem(request);
@@ -50,7 +52,7 @@ public class LendController {
         try {
             // JSON 파일을 읽어서 List<LendItem> 객체로 변환
             List<LendItem> lendItems = objectMapper.readValue(
-                    new File("/Users/gimdongmin/Downloads/modeKasu/src/main/resources/static/list.JSON"),
+                    new File("src/main/resources/static/list.JSON"),
                     new TypeReference<List<LendItem>>() {
                     }
             );

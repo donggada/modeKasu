@@ -61,11 +61,11 @@ spring:
 
 toss:
   client:
-    key: ${TOSS_CLIENT_KEY}
+    key: 123
   secret:
-    key: ${TOSS_SECRET_KEY}
+    key: 123
   security:
-    key: ${TOSS_SECURITY_KEY}
+    key: 123
 ---
 spring:
   config:
