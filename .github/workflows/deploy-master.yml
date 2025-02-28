@@ -33,7 +33,7 @@ jobs:
                 - name: PROD_DB_PORT
                   var: PROD_DB_PORT
                 - name: PROD_DB_DATA_BASE
-                  var: PROD_DB_DATA_BASE
+                  var: PROD_DB_DATA_BASE_MODEKASU
                 - name: PROD_DB_USER_NAME
                   secret: PROD_DB_USER_NAME
                 - name: PROD_DB_PASSWORD
