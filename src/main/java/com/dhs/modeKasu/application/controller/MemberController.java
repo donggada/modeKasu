@@ -19,7 +19,7 @@ public class MemberController {
 
     @PostMapping("")
     public MemberSignupResponse signupMember (@RequestBody @Valid MemberSignupRequest request) {
-        return memberFacade.registerMember(request);
+        return memberFacade.signupMember(request);
     }
 
 

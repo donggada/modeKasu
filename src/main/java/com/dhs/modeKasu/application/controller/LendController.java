@@ -17,8 +17,6 @@ public class LendController {
 
     private final LendItemFacade lendItemFacade;
 
-
-
     @PostMapping
     public LendItemResponse createLendItem(@RequestBody @Valid LendItemRequest request) {
         return lendItemFacade.createLendItem(request);

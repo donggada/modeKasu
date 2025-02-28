@@ -37,8 +37,8 @@ public class Member extends BaseTimeEntity {
         this.phoneNumber = phoneNumber;
     }
 
-    public static Member createMember(MemberSignupRequest request) {
-        return new Member(request.loginId(), request.password(), request.username(), request.phoneNumber());
+    public static Member createMember(MemberSignupRequest request, String encodePassword) {
+        return new Member(request.loginId(), encodePassword, request.username(), request.phoneNumber());
     }
 
 }
