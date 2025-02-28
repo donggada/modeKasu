@@ -1,20 +1,8 @@
 package com.dhs.modeKasu.application.dto.response;
 
+public record LoginResponse(String loginId, String token,String message) {
 
-import com.dhs.modeKasu.domain.model.member.Member;
-
-public record LoginResponse(
-        String loginId,
-        String username,
-        String phoneNumber,
-        String message
-) {
-    public static LoginResponse of (Member member) {
-        return new LoginResponse(
-                member.getLoginId(),
-                member.getUsername(),
-                member.getPhoneNumber(),
-                "로그인 성공"
-        );
+    public static LoginResponse of (String loginId, String token) {
+        return new LoginResponse(loginId, token, "로그인 성공");
     }
 }

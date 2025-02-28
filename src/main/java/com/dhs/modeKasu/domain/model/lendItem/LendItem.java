@@ -5,6 +5,9 @@ import com.dhs.modeKasu.domain.model.BaseTimeEntity;
 import com.dhs.modeKasu.domain.model.category.Category;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.List;
 
@@ -34,14 +37,16 @@ public class LendItem extends BaseTimeEntity {
 
     private int discount;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "lenditem_size", joinColumns = @JoinColumn(name = "lenditem_id"))
     @Column(name = "size")
+    @BatchSize(size = 10)
     private List<String> size;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "lenditem_color", joinColumns = @JoinColumn(name = "lenditem_id"))
     @Column(name = "color")
+    @BatchSize(size = 10)
     private List<String> color;
 
     public String getCategoryName() {
